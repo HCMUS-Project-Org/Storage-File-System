@@ -56,7 +56,7 @@ namespace Secure_file_storage_system__RSA_
                 this.ActiveControl = lb_VKey;
                 return;
             }
-           
+
             announce.Text = "Verifying....";
             announce.ForeColor = System.Drawing.Color.Gray;
 
@@ -84,7 +84,7 @@ namespace Secure_file_storage_system__RSA_
             catch
             {
                 privateKey.Text = "";
-                return; 
+                return;
             }
 
             // case private key match with public key 
@@ -102,6 +102,18 @@ namespace Secure_file_storage_system__RSA_
             responseTask.Wait();
 
             announce.Visible = false;
+
+            // set Sign in form to default
+            Sign_In.instance.lb_announce.Visible = false;
+            Sign_In.instance.username.Text = "";
+            Sign_In.instance.username_Leave(sender, e);
+
+            Sign_In.instance.passwrd.Text = "";
+            Sign_In.instance.passwrd_Leave(sender, e);
+
+            Sign_In.instance.ActiveControl = Sign_In.instance.lb_announce;
+
+            // Show verify success
             MessageBox.Show("           >> Congratulation!! << \nThis key matched with public key! \n\n Click OK to return SIGN IN form", "Infornation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
@@ -109,7 +121,6 @@ namespace Secure_file_storage_system__RSA_
         private void btnVerify_MouseHover(object sender, EventArgs e)
         {
             btnVerify.Cursor = Cursors.Hand;
-
         }
 
         private void Verify_key_Click(object sender, EventArgs e)

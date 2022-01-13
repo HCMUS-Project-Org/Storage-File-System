@@ -289,19 +289,19 @@
         private System.Windows.Forms.Button btn_signup;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox passwrd;
+        public System.Windows.Forms.TextBox passwrd;
         private System.Windows.Forms.Label lb_passwrd;
         private System.Windows.Forms.Label lb_usrname;
         private System.Windows.Forms.Button btn_login;
         private System.Windows.Forms.Label lb_Login;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox username;
+        public System.Windows.Forms.TextBox username;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label mess;
-        private System.Windows.Forms.Label lb_announce;
+        public System.Windows.Forms.Label lb_announce;
     }
 }
 

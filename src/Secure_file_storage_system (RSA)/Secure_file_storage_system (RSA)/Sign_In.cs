@@ -28,11 +28,12 @@ namespace Secure_file_storage_system__RSA_
             InitializeComponent();
             instance = this;
         }
+
       
         private void btn_signup_Click(object sender, EventArgs e)
         {
             // call SignUp form
-            //this.Hide();
+            this.Hide();
             Sign_Up signUp_form = new Sign_Up();
             signUp_form.ShowDialog();
         }
@@ -48,7 +49,7 @@ namespace Secure_file_storage_system__RSA_
             }
         }
 
-        private void username_Leave(object sender, EventArgs e)
+        public void username_Leave(object sender, EventArgs e)
         {
             if (username.Text == "")
             {
@@ -68,7 +69,7 @@ namespace Secure_file_storage_system__RSA_
             }
         }
 
-        private void passwrd_Leave(object sender, EventArgs e)
+        public void passwrd_Leave(object sender, EventArgs e)
         {
             if (passwrd.Text == "")
             {
@@ -105,7 +106,7 @@ namespace Secure_file_storage_system__RSA_
                 var result = responseTask.Result;
                 if (result.IsSuccessStatusCode) // login successfull
                 {
-                    lb_announce.Text = "Login Success";
+                    lb_announce.Text = "Login Success\nPlease wait...";
                     lb_announce.ForeColor = System.Drawing.Color.Green;
 
                     var messageTask = result.Content.ReadAsStringAsync();

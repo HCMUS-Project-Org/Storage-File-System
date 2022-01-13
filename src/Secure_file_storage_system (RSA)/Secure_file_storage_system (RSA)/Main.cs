@@ -299,10 +299,14 @@ namespace Secure_file_storage_system__RSA_
                 // Delete temp image in Temp folder
                 DeleteFile(imageLocation);
                 main_Load(sender, e);
+
+                UncheckCheckedItem();
             }
             catch (Exception err)
             {
                 MessageBox.Show("An Error occured"+err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                UncheckCheckedItem();
             }
         }
 
@@ -327,7 +331,11 @@ namespace Secure_file_storage_system__RSA_
                 }
 
                 MessageBox.Show("Download complete!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                UncheckCheckedItem();
             }
+
+            UncheckCheckedItem();
         }
 
         private void DeleteFile(string filePath)
@@ -384,6 +392,25 @@ namespace Secure_file_storage_system__RSA_
                 index++;
             }
             CheckAll = state;
+        }
+
+        private void UncheckCheckedItem()
+        {
+            var index = 0;
+
+            while (true)
+            {
+                try
+                {
+                    imageList.Items[index].Checked = false;
+                }
+                catch (Exception)
+                {
+                    break;
+                }
+
+                index++;
+            }
         }
 
         private void btnDecrypt_Click(object sender, EventArgs e)
@@ -460,6 +487,8 @@ namespace Secure_file_storage_system__RSA_
             {
                 imageList.Items.Add(new ListViewItem($"{itemIndex + 1}.png", itemIndex));
             }
+
+            UncheckCheckedItem();
         }
 
         private void btnShare_Click(object sender, EventArgs e)
@@ -575,6 +604,8 @@ namespace Secure_file_storage_system__RSA_
             selectedImage.Image = LoadedImages[0];
 
             MessageBox.Show("Share complete", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+            UncheckCheckedItem();
         }
 
 
@@ -618,6 +649,7 @@ namespace Secure_file_storage_system__RSA_
         private void btn_reload_Click(object sender, EventArgs e)
         {
             this.main_Load(sender, e);
+            UncheckCheckedItem();
         }
 
         private void btn_copy_Click(object sender, EventArgs e)
